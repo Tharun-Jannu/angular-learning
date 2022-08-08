@@ -1,0 +1,29 @@
+<p>loan-type works!</p>
+
+<form [formGroup]="addLoantypeForm">
+    <label>firstname </label>
+        <input type="text" formControlName="firstname"><br />
+         <!-- <div class="text-danger" *ngIf= "addLoantypeForm.get('firstname').hasError('required') && addLoantypeForm.get('firstname').touched">sfsf</div> -->
+        <div class="text-danger" *ngIf= "addLoantypeForm.controls['firstname'].hasError('required') && addLoantypeForm.controls['firstname'].touched">field required</div> 
+        <div class="text-danger" *ngIf= "addLoantypeForm.controls['firstname'].hasError('minlength') && addLoantypeForm.controls['firstname'].touched">max 6 characters</div> 
+        <br />
+        <label>lastname </label>
+        <input type="text" formControlName="lastname"><br />
+        <br />
+        <label>cell </label>
+        <input type="tel" formControlName="cell"><br />
+        <br />
+        <label>father name </label>
+        <input type="text" formControlName="fname"><br />
+        <br />
+        <label>address </label>
+        <textarea formControlName="address"></textarea><br />
+        <br />
+        <button (click)="addloantype()" [disabled] = '!addLoantypeForm.valid'>Add user</button> &nbsp;
+        <button (click) = "resetform()">Rest Form</button>
+
+
+<!-- 
+    - if you wanna write code like line no-6 will get error--(Object is possibly 'null'. )
+    - to overcome that need to add either this one ("strictNullChecks": false) in tsconfig.json file or write code as line no-7
+    -->
